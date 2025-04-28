@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "dd778020-2d60-4b1e-9a14-a6a4ef340efe": {
+      "ProjectGuid": "dd778020-2d60-4b1e-9a14-a6a4ef340efe",
+      "DisplayName": "WhisperBranch.TreeEngine",
+      "ColorIndex": 0
+    },
+    "abef375a-9f91-43f4-ac4f-55f3e60e7689": {
+      "ProjectGuid": "abef375a-9f91-43f4-ac4f-55f3e60e7689",
+      "DisplayName": "WhisperBranch.API",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
