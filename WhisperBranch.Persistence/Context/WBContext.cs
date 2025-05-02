@@ -1,13 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WhisperBranch.Domain.Entities;
+
 
 namespace WhisperBranch.Persistence.Context
 {
-    internal class WBContext:DbContext
+    public class WBContext : DbContext
     {
+        public DbSet<GraphEnt> Graphs { get; set; } 
+        public WBContext(DbContextOptions<WBContext> options) : base(options) { 
+
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
+
+    
 }

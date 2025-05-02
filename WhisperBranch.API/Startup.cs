@@ -1,4 +1,8 @@
-﻿namespace WhisperBranch.API
+﻿using Microsoft.EntityFrameworkCore;
+using WhisperBranch.Persistence.Context;
+using WhisperBranch.Persistence.DependencyInjection;
+
+namespace WhisperBranch.API
 {
     public class Startup
     {
@@ -13,6 +17,7 @@
         {
             services.AddControllers();
             services.AddSwaggerGen();
+            services.AddPersistence(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,6 +49,8 @@
             {
                 endpoints.MapControllers();
             });
+
         }
     }
+ 
 }

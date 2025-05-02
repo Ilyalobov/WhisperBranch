@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WhisperBranch.Application\WhisperBranch.Application.csproj" />
     <ProjectReference Include="..\WhisperBranch.Contracts\WhisperBranch.Contracts.csproj" />
+    <ProjectReference Include="..\WhisperBranch.Persistence\WhisperBranch.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
