@@ -9,7 +9,7 @@ namespace WhisperBranch.API.Controllers
     public class GraphController : ControllerBase
     {
         [HttpPost(nameof(CreateAsync))]
-        public async Task<bool> CreateAsync([Required] GraphDto graph, CancellationToken cancellationToken)
+        public async Task<bool> CreateAsync([FromBody] GraphDto graph, CancellationToken cancellationToken)
         {
             return true;
         }

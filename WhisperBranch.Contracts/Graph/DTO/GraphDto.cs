@@ -5,5 +5,7 @@
         public int Value { get; set; }
 
         public required GraphDto[] Children { get; set; }
+
+        public override string ToString() => $"Node({Value})";
     }
 }

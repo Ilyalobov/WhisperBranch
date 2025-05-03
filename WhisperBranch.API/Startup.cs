@@ -1,5 +1,8 @@
 ﻿using WhisperBranch.Persistence.Context;
 using WhisperBranch.Persistence.DependencyInjection;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using WhisperBranch.Application.Graph;
 
 namespace WhisperBranch.API
 {
@@ -17,6 +20,8 @@ namespace WhisperBranch.API
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddPersistence(Configuration);
+            services.AddFluentValidationAutoValidation();
+            services.AddValidatorsFromAssemblyContaining<GraphValidator>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,6 +55,8 @@ namespace WhisperBranch.API
                 endpoints.MapControllers();
             });
 
+           
+            
         }
     }
  
