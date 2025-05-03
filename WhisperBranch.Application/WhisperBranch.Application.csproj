@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WhisperBranch.Domain\WhisperBranch.Domain.csproj" />
     <ProjectReference Include="..\WhisperBranch.Contracts\WhisperBranch.Contracts.csproj" />
+    <ProjectReference Include="..\WhisperBranch.TreeEngine\WhisperBranch.TreeEngine.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

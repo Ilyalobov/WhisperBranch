@@ -1,11 +1,11 @@
-﻿namespace WhisperBranch.Contracts.Graph
+﻿using WhisperBranch.Contracts.Interfaces;
+
+namespace WhisperBranch.Contracts.Graph
 {
-    public class GraphDto
+    public class GraphDto : INode
     {
+        public int Id { get; set; }
         public int Value { get; set; }
-
-        public required GraphDto[] Children { get; set; }
-
-        public override string ToString() => $"Node({Value})";
+        public IEnumerable<INode> Children { get; set; } = new List<INode>();
     }
 }
