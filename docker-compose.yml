@@ -1,0 +1,25 @@
+services:
+  whisperbranch.api:
+    image: ${DOCKER_REGISTRY-}whisperbranchapi
+    build:
+      context: .
+      dockerfile: WhisperBranch.API/Dockerfile
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=Whisperdb;Username=Whisperpguser;Password=whisperpgpwd
+  db:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "Whisperdb"
+      POSTGRES_USER: "Whisperpguser"
+      POSTGRES_PASSWORD: "whisperpgpwd"
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+
+volumes:
+  pgdata:
+
