@@ -16,9 +16,5 @@ namespace WhisperBranch.API
                 {
                     webBuilder.UseStartup<Startup>();   
                 });
-
-
-
     }
-
 }

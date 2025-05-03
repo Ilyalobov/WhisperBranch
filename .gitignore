@@ -244,3 +244,9 @@ paket-files/
 .idea/
 *.sln.iml
 .vs/WhisperBranch/DesignTimeBuild/.dtbcache.v2
+
+# docker 
+*.vhdx
+*.vhd
+*.iso
+*.vmdk
