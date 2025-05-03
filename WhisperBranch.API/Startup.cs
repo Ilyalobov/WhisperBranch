@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WhisperBranch.Persistence.Context;
+﻿using WhisperBranch.Persistence.Context;
 using WhisperBranch.Persistence.DependencyInjection;
 
 namespace WhisperBranch.API
@@ -22,6 +21,7 @@ namespace WhisperBranch.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.ApplyMigrations<WBContext>();
             if (env.IsDevelopment())
             {
                 app.UseSwagger();

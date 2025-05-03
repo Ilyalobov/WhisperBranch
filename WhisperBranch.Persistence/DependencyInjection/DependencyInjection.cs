@@ -16,5 +16,4 @@ namespace WhisperBranch.Persistence.DependencyInjection
             return services;
         }
     }
-
 }
