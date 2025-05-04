@@ -14,27 +14,30 @@ namespace WhisperBranch.Tests.Unit.Engine
     public class GraphCycleDetectorTests
     {
         [Fact]
-        public void DetectsCycle_WhenGraphHasCycle_ReturnsTrue()
+        public void HasCycle_ReturnsTrue_WhenGraphHasCycle()
         {
-            // A -> B -> C -> A (цикл)
+            // Arrange
             var nodeA = new GraphDto { Id = 1 };
             var nodeB = new GraphDto { Id = 2 };
             var nodeC = new GraphDto { Id = 3 };
 
             nodeA.Children = new[] { nodeB };
             nodeB.Children = new[] { nodeC };
-            nodeC.Children = new[] { nodeA }; 
+            nodeC.Children = new[] { nodeA }; // цикл A → B → C → A
 
             var detector = new GraphCycleDetector();
-            var hasCycle = detector.HasCycle(new[] { nodeA });
 
-            Assert.True(hasCycle);
+            // Act
+            var result = detector.HasCycle(new[] { nodeA });
+
+            // Assert
+            Assert.True(result);
         }
 
         [Fact]
-        public void DetectsCycle_WhenGraphIsAcyclic_ReturnsFalse()
+        public void HasCycle_ReturnsFalse_WhenGraphIsAcyclic()
         {
-            // A -> B -> C
+            // Arrange
             var nodeA = new GraphDto { Id = 1 };
             var nodeB = new GraphDto { Id = 2 };
             var nodeC = new GraphDto { Id = 3 };
@@ -44,36 +47,46 @@ namespace WhisperBranch.Tests.Unit.Engine
             nodeC.Children = Array.Empty<GraphDto>();
 
             var detector = new GraphCycleDetector();
-            var hasCycle = detector.HasCycle(new[] { nodeA });
 
-            Assert.False(hasCycle);
+            // Act
+            var result = detector.HasCycle(new[] { nodeA });
+
+            // Assert
+            Assert.False(result);
         }
 
         [Fact]
-        public void DetectsCycle_WhenGraphIsEmpty_ReturnsFalse()
+        public void HasCycle_ReturnsFalse_WhenGraphIsEmpty()
         {
+            // Arrange
             var detector = new GraphCycleDetector();
-            var hasCycle = detector.HasCycle(Array.Empty<INode>());
 
-            Assert.False(hasCycle);
+            // Act
+            var result = detector.HasCycle(Array.Empty<INode>());
+
+            // Assert
+            Assert.False(result);
         }
 
         [Fact]
-        public void DetectsCycle_WhenDisconnectedGraphHasCycle_ReturnsTrue()
+        public void HasCycle_ReturnsTrue_WhenDisconnectedGraphHasCycle()
         {
-            // Граф: A -> B -> A (цикл), и отдельно C
+            // Arrange
             var nodeA = new GraphDto { Id = 1 };
             var nodeB = new GraphDto { Id = 2 };
             var nodeC = new GraphDto { Id = 3 };
 
             nodeA.Children = new[] { nodeB };
             nodeB.Children = new[] { nodeA }; 
-            nodeC.Children = Array.Empty<GraphDto>(); 
+            nodeC.Children = Array.Empty<GraphDto>();
 
             var detector = new GraphCycleDetector();
-            var hasCycle = detector.HasCycle(new[] { nodeA, nodeC });
 
-            Assert.True(hasCycle);
+            // Act
+            var result = detector.HasCycle(new[] { nodeA, nodeC });
+
+            // Assert
+            Assert.True(result);
         }
     }
 
