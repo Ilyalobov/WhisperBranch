@@ -2,12 +2,17 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\WhisperBranch.Domain\WhisperBranch.Domain.csproj" />
     <ProjectReference Include="..\WhisperBranch.Contracts\WhisperBranch.Contracts.csproj" />
     <ProjectReference Include="..\WhisperBranch.TreeEngine\WhisperBranch.TreeEngine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Graph\Query\" />
   </ItemGroup>
 
   <PropertyGroup>
